@@ -80,13 +80,8 @@ border: 2px solid gray;
         overflow-x: scroll;
         display: block;
     }
-    .alert{
-        width: 100%;
-    }
-    body{
-        display: block;
-    }
 }
+
 .horizontal{
     width: 984px;
     display: flex;
@@ -114,4 +109,5 @@ border: 2px solid gray;
     top: 10%;
     transform: translateX(-50%);
     left: 50%;
+    border-radius: 20px;
 }
