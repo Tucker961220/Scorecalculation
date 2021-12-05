@@ -1,0 +1,117 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+.box{
+    display: flex;
+    flex-wrap: wrap;
+}
+.leftbox{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 208, 0);
+    flex-wrap: nowrap;
+    padding: 10px;
+
+}
+.rightbox{
+    width: 984px;
+    height: 100px;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.input{
+    width: 50px;
+    height: 40px;
+    border-radius: 3px;
+    border-style: none;
+    border: 2px solid black;
+    font-size: 20px;
+    background-color: rgb(207, 191, 191);
+}
+.suject{
+height: 40px;
+background:blue;
+color: #fafafa;
+width: 150px;
+padding: 8px;
+position: relative;
+border-radius: 5px;
+appearance: none;
+background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M7%2010l5%205%205-5z%22%2F%3E%3C%2Fsvg%3E"), linear-gradient(#f39923, #f39923);
+background-position: right 0.2em top 50%, 0 0;
+background-size: contain, cover;
+background-repeat: no-repeat, repeat;
+border: 2px solid gray;
+}
+.btn{
+    width: 120px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: rgb(0, 140, 255);
+    border-style: none;
+    border: 3px solid black;
+}
+.btn:hover{
+    background-color: #f39923;
+    transition: 0.5s;
+}
+.chang{
+    background-color: chocolate;
+}
+.sheet{
+    width: 80px;
+    height: 30px;
+    background-color: white;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    text-align: center;
+    line-height: 30px;
+    display: flex;
+    flex-direction: column;
+}
+@media(max-width:990px){
+    .rightbox{
+        width: 100%;
+        height: 789px;
+        overflow-x: scroll;
+        display: block;
+    }
+    .alert{
+        width: 100%;
+    }
+    body{
+        display: block;
+    }
+}
+.horizontal{
+    width: 984px;
+    display: flex;
+}
+.titlebox{
+    background-color: cornflowerblue;
+    text-align: center;
+}
+.inputbox{
+    background-color: cornflowerblue;
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+.number-,.chinese-,.math-,.english-,.science-,.history-,.geography-,.citizen-,.socialAverage-,.total-,.average-,.ranking-{
+    border-top: 2px solid black;
+}
+.ranking,.ranking-{
+    border-right: 2px solid black;
+}
+.alert{
+    position: fixed;
+    width: 405px;
+    height: 200px;
+    background-color: orange;
+    top: 10%;
+    transform: translateX(-50%);
+    left: 50%;
+}
