@@ -50,7 +50,7 @@ function add() {  //添加分數按鈕函式
     }
 }
 function calculate(){   //計算分數按鈕函式
-
+    alert("此功能即將推出，敬請期待")
 }
 
 //檢測函式
