@@ -12,12 +12,16 @@ var HISTORY = {"項目":'歷史'} //歷史(注意大寫)
 var geography = {"項目":'地理'} //地理
 var citizen = {"項目":'公民'} //公民
 var socialaverage = {"項目":'社會平均'} //社會平均
-
+var totalscore = {"項目":'總分'} //總分
+var average = {"項目":'平均'} //平均
+var ranking = {"項目":'名次'} //名次
 
 
 const numbertest = [1,3,4,5,6,7,8,9,10,21,22,23,24,25,26,27,28,29,30,31,32,33,41]
 const subjecttest=["chinese","math","english","science","history","geography","citizen"]
 
+
+//按鈕函式
 function add() {  //添加分數按鈕函式
     var suject = sujectchang.value
     var number = numberinput.value
@@ -48,12 +52,21 @@ function add() {  //添加分數按鈕函式
         document.getElementById(dom).innerText= fraction
         arrayjudeg(suject,number,fraction)
     }
+
 }
 function calculate(){   //計算分數按鈕函式
-    alert("此功能即將推出，敬請期待")
+    if (objectdetection()){
+        continuecalculate()
+    }else{
+        if (confirm("分數尚未全部輸入完畢，您確定要繼續計算嗎")){
+            continuecalculate()
+        }else{
+            return
+        }
+    }
 }
 
-//檢測函式
+//其餘函式
 function arrayjudeg(suject,number,fraction){   //判斷項目並增加物件和console
     switch (suject){
         case 'chinese':
@@ -86,70 +99,139 @@ function arrayjudeg(suject,number,fraction){   //判斷項目並增加物件和c
         break
     }
 }
-
-
-
-
+function objectdetection(){  //檢測分數是否全部輸入完畢
+    if (Object.keys(chinese).length==24&&Object.keys(chinese).length==24&&Object.keys(chinese).length==24&&Object.keys(chinese).length==24&&Object.keys(chinese).length==24&&Object.keys(chinese).length==24&&Object.keys(chinese).length==24){
+        return true
+    }else{
+        return false
+    }
+}
+function continuecalculate(){
+    for (var i=0;i<23;i++){
+        var societytotal = 0   
+        societytotal = Number(HISTORY[numbertest[i]])+Number(geography[numbertest[i]])+Number(citizen[numbertest[i]])
+        socialaverage[numbertest[i]]=Math.round(societytotal/3*10)/10
+        document.getElementById(`socialAverage${numbertest[i]}`).innerText=socialaverage[numbertest[i]]
+    }
+    console.log(socialaverage)
+    for (var i=0;i<23;i++){
+        var total = 0
+        total = Number(chinese[numbertest[i]])+Number(math[numbertest[i]])+Number(english[numbertest[i]])+Number(science[numbertest[i]])+Number(socialaverage[numbertest[i]])
+        totalscore[numbertest[i]] = total
+        document.getElementById(`total${numbertest[i]}`).innerText=totalscore[numbertest[i]]
+    }
+    console.log(totalscore)
+    for (var i=0;i<23;i++){
+        average[numbertest[i]] = Math.round(totalscore[numbertest[i]]/5*10)/10
+        document.getElementById(`average${numbertest[i]}`).innerText=average[numbertest[i]]
+    }
+    var rankingg = 1
+    var copyaverage = Object.assign({},average)
+    for(var q=0;q<23;q++){
+        var top = 0
+        var topnumber = []
+        for (var i=0;i<23;i++){
+            if (copyaverage[numbertest[i]]>top){
+                top=copyaverage[numbertest[i]]
+                topnumber= [numbertest[i]]
+            }else if (copyaverage[numbertest[i]]==top) {
+                
+            }
+        }
+        copyaverage[topnumber]=0
+        ranking[topnumber]=rankingg
+        rankingg++
+    }
+    for(var i=0;i<23;i++){
+        document.getElementById(`ranking${numbertest[i]}`).innerText=ranking[numbertest[i]]
+    }
+    console.log(ranking)
+    //未添加分數計算欄文字刪除
+    for (var i=0;i<23;i++){
+        if (document.getElementById(`socialAverage${numbertest[i]}`).innerText=="NaN"){
+            document.getElementById(`socialAverage${numbertest[i]}`).innerText=""
+        }
+    }
+    for (var i=0;i<23;i++){
+        if (document.getElementById(`total${numbertest[i]}`).innerText=="NaN"){
+            document.getElementById(`total${numbertest[i]}`).innerText=""
+        }
+    }
+    for (var i=0;i<23;i++){
+        if (document.getElementById(`average${numbertest[i]}`).innerText=="NaN"){
+            document.getElementById(`average${numbertest[i]}`).innerText=""
+        }
+    }
+    for (var i=0;i<23;i++){
+        if (document.getElementById(`ranking${numbertest[i]}`).innerText=="undefined"){
+            document.getElementById(`ranking${numbertest[i]}`).innerText=""
+        }
+    }
+}
 //測試功能
 function fillup(){
     for (var q=0;q<7;q++){
         for (var i=0;i<23;i++){
+            document.getElementById(subjecttest[q]+numbertest[i]).innerText=Random()
             switchtest(q,numbertest[i],true)
-            document.getElementById(subjecttest[q]+numbertest[i]).innerText=100
         }
         switchtest(q,i,false)
     }
+}
+function Random(){
+    return Math.floor(Math.random() * 100)
 }
 function switchtest(q,i,x){
     switch (q){
         case 0:
             if (x){
-                chinese[i]=100
+                chinese[i]=document.getElementById(subjecttest[q]+i).innerText
             }else{
                 console.log(chinese)
             }
         break
         case 1:
             if (x){
-                math[i]=100
+                math[i]=document.getElementById(subjecttest[q]+i).innerText
             }else{
                 console.log(math)
             }
         break
         case 2:
             if (x){
-                english[i]=100
+                english[i]=document.getElementById(subjecttest[q]+i).innerText
             }else{
                 console.log(english)
             }
         break
         case 3:
             if (x){
-                science[i]=100
+                science[i]=document.getElementById(subjecttest[q]+i).innerText
             }else{
                 console.log(science)
             }
         break
         case 4:
             if (x){
-                HISTORY[i]=100
+                HISTORY[i]=document.getElementById(subjecttest[q]+i).innerText
             }else{
                 console.log(HISTORY)
             }
         break
         case 5:
             if (x){
-                geography[i]=100
+                geography[i]=document.getElementById(subjecttest[q]+i).innerText
             }else{
                 console.log(geography)
             }
         break
         case 6:
             if (x){
-                citizen[i]=100
+                citizen[i]=document.getElementById(subjecttest[q]+i).innerText
             }else{
                 console.log(citizen)
             }
         break
     }
 }
+//fillup()
