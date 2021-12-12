@@ -29,12 +29,17 @@ function add() {  //添加分數按鈕函式
     function judge(){
         if (number==1 || number>2 && number<11 ||number>20 && number<34 || number==41){
             if (suject!= "NULL"){
-                if (fraction<101 && fraction>=0){
+                if (fraction<101 && fraction>=0 && fraction!=""){  
                     return true
                 }else{
-                    alert("分數錯誤，請重新輸入")
-                    fractioninput.value=""
-                    return false
+                    if (fraction=="") {
+                        alert("請輸入分數")
+                    }else{
+                        alert("分數錯誤，請重新輸入")
+                        fractioninput.value=""
+                        return false
+                    }
+                    
                 }
             }else{
                 alert("請選擇科目")
@@ -51,15 +56,19 @@ function add() {  //添加分數按鈕函式
         var dom = String(suject+number)
         document.getElementById(dom).innerText= fraction
         arrayjudeg(suject,number,fraction)
+        fractioninput.value=""
+        hint("分數添加成功")
     }
 
 }
 function calculate(){   //計算分數按鈕函式
     if (objectdetection()){
         continuecalculate()
+        hint("成功計算")
     }else{
         if (confirm("分數尚未全部輸入完畢，您確定要繼續計算嗎")){
             continuecalculate()
+            hint("成功計算")
         }else{
             return
         }
@@ -100,7 +109,7 @@ function arrayjudeg(suject,number,fraction){   //判斷項目並增加物件和c
     }
 }
 function objectdetection(){  //檢測分數是否全部輸入完畢
-    if (Object.keys(chinese).length==24&&Object.keys(chinese).length==24&&Object.keys(chinese).length==24&&Object.keys(chinese).length==24&&Object.keys(chinese).length==24&&Object.keys(chinese).length==24&&Object.keys(chinese).length==24){
+    if (Object.keys(chinese).length==24&&Object.keys(math).length==24&&Object.keys(english).length==24&&Object.keys(science).length==24&&Object.keys(history).length==24&&Object.keys(geography).length==24&&Object.keys(citizen).length==24){
         return true
     }else{
         return false
@@ -244,8 +253,16 @@ function download(){
         a.click();
       });
 }
+// 提示動畫
+function hint(message){
+    document.getElementById("alertbox").innerText=message
+    document.getElementById("alertbox").classList='show alertbox'
+    setTimeout(()=>{document.getElementById("alertbox").classList='hide alertbox'},3000)
+}
+
+
 
 function qq(){
     alert(`此功能及將推出，敬請期待`)
 }
-//fillup()
+// fillup()
