@@ -234,6 +234,17 @@ function switchtest(q,i,x){
         break
     }
 }
+function download(){
+    html2canvas(document.querySelector("#sheet")).then(function (canvas) {
+        a = document.createElement("a");
+        a.href = canvas
+          .toDataURL("image/jpeg", 0.92)
+          .replace("image/jpeg", "image/octet-stream");
+        a.download = "段考成績表.jpg";
+        a.click();
+      });
+}
+
 function qq(){
     alert(`此功能及將推出，敬請期待`)
 }
