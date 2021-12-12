@@ -2,400 +2,425 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" con10t="IE=edge">
-    <meta name="viewport" con10t="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>段考成績系統</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="box">
-        <div class="leftbox">
-            <div class="titlebox"><h1>段考成績系統</h1></div>
-            <div class="inputbox">
-                <h2>座號：<input type="number" class="input" id="numberinput"></h2>
-                <h2>科目：
-                    <select id="sujectchang" size="1" class="suject">
-                        <option value="NULL" class="chang">請選擇科目</option>
-                        <option value="chinese" class="chang">國文</option>
-                        <option value="math" class="chang">數學</option>
-                        <option value="english" class="chang">英文</option>
-                        <option value="science" class="chang">自然</option>
-                        <option value="geography" class="chang">地理</option>
-                        <option value="history" class="chang">歷史</option>
-                        <option value="citizen" class="chang">公民</option>
-                    </select>
-                </h2>
-                <h2>分數：<input type="number" class="input" id="fraction"></h2>
-                <button class="btn" id="addbtn" onclick="add()">添加分數</button>
-                <button class="btn" id="btn" onclick="calculate()">計算成績</button>               
-            </div>
+
+    <div class="leftbox">
+        <div class="titletext">段考成績系統</div>
+        <div class="inputbox">
+        <div>
+            <span class="numbertext">座號</span>
+            <span class="fractiontext">分數</span>
         </div>
-        <div class="rightbox">
-            <!-- ----橫一---- -->
-            <div class="horizontal">
-                <div class="sheet number-" id="number">座號</div>
-                <div class="sheet chinese-" id="chinese">國語</div>
-                <div class="sheet math-" id="math">數學</div>
-                <div class="sheet english-" id="english">英文</div>
-                <div class="sheet science-" id="science">自然</div>
-                <div class="sheet geography-" id="geography">地理</div>
-                <div class="sheet history-" id="history">歷史</div>
-                <div class="sheet citizen-" id="citizen">公民</div>
-                <div class="sheet socialAverage-" id="socialAverage">社會平均</div>
-                <div class="sheet total-" id="total">總分</div>
-                <div class="sheet average-" id="average">平均</div>
-                <div class="sheet ranking-" id="ranking">名次</div>
-            </div>
-            <!-- ----1---- -->
-            <div class="horizontal">
-                <div class="sheet number" id="number1">1</div>
-                <div class="sheet chinese" id="chinese1"></div>
-                <div class="sheet math" id="math1"></div>
-                <div class="sheet english" id="english1"></div>
-                <div class="sheet science" id="science1"></div>
-                <div class="sheet geography" id="geography1"></div>
-                <div class="sheet history" id="history1"></div>
-                <div class="sheet citizen" id="citizen1"></div>
-                <div class="sheet socialAverage" id="socialAverage1"></div>
-                <div class="sheet total" id="total1"></div>
-                <div class="sheet average" id="average1"></div>
-                <div class="sheet ranking" id="ranking1"></div>
-            </div>
-            <!-- ----3---- -->
-            <div class="horizontal">
-                <div class="sheet number" id="number3">3</div>
-                <div class="sheet chinese" id="chinese3"></div>
-                <div class="sheet math" id="math3"></div>
-                <div class="sheet english" id="english3"></div>
-                <div class="sheet science" id="science3"></div>
-                <div class="sheet geography" id="geography3"></div>
-                <div class="sheet history" id="history3"></div>
-                <div class="sheet citizen" id="citizen3"></div>
-                <div class="sheet socialAverage" id="socialAverage3"></div>
-                <div class="sheet total" id="total3"></div>
-                <div class="sheet average" id="average3"></div>
-                <div class="sheet ranking" id="ranking3"></div>
-            </div>
-            <!-- ----4---- -->
-            <div class="horizontal">
-                <div class="sheet number" id="number4">4</div>
-                <div class="sheet chinese" id="chinese4"></div>
-                <div class="sheet math" id="math4"></div>
-                <div class="sheet english" id="english4"></div>
-                <div class="sheet science" id="science4"></div>
-                <div class="sheet geography" id="geography4"></div>
-                <div class="sheet history" id="history4"></div>
-                <div class="sheet citizen" id="citizen4"></div>
-                <div class="sheet socialAverage" id="socialAverage4"></div>
-                <div class="sheet total" id="total4"></div>
-                <div class="sheet average" id="average4"></div>
-                <div class="sheet ranking" id="ranking4"></div>
-            </div>
-            <!-- ----5---- -->
-            <div class="horizontal">
-                <div class="sheet number" id="number5">5</div>
-                <div class="sheet chinese" id="chinese5"></div>
-                <div class="sheet math" id="math5"></div>
-                <div class="sheet english" id="english5"></div>
-                <div class="sheet science" id="science5"></div>
-                <div class="sheet geography" id="geography5"></div>
-                <div class="sheet history" id="history5"></div>
-                <div class="sheet citizen" id="citizen5"></div>
-                <div class="sheet socialAverage" id="socialAverage5"></div>
-                <div class="sheet total" id="total5"></div>
-                <div class="sheet average" id="average5"></div>
-                <div class="sheet ranking" id="ranking5"></div>
-            </div>
-            <!-- ----6---- -->
-            <div class="horizontal">
-                <div class="sheet number" id="number6">6</div>
-                <div class="sheet chinese" id="chinese6"></div>
-                <div class="sheet math" id="math6"></div>
-                <div class="sheet english" id="english6"></div>
-                <div class="sheet science" id="science6"></div>
-                <div class="sheet geography" id="geography6"></div>
-                <div class="sheet history" id="history6"></div>
-                <div class="sheet citizen" id="citizen6"></div>
-                <div class="sheet socialAverage" id="socialAverage6"></div>
-                <div class="sheet total" id="total6"></div>
-                <div class="sheet average" id="average6"></div>
-                <div class="sheet ranking" id="ranking6"></div>
-            </div>
-            <!-- ----7---- -->
-            <div class="horizontal">
-                <div class="sheet number" id="number7">7</div>
-                <div class="sheet chinese" id="chinese7"></div>
-                <div class="sheet math" id="math7"></div>
-                <div class="sheet english" id="english7"></div>
-                <div class="sheet science" id="science7"></div>
-                <div class="sheet geography" id="geography7"></div>
-                <div class="sheet history" id="history7"></div>
-                <div class="sheet citizen" id="citizen7"></div>
-                <div class="sheet socialAverage" id="socialAverage7"></div>
-                <div class="sheet total" id="total7"></div>
-                <div class="sheet average" id="average7"></div>
-                <div class="sheet ranking" id="ranking7"></div>
-            </div>
-            <!-- ----8---- -->
-            <div class="horizontal">
-                <div class="sheet number" id="number8">8</div>
-                <div class="sheet chinese" id="chinese8"></div>
-                <div class="sheet math" id="math8"></div>
-                <div class="sheet english" id="english8"></div>
-                <div class="sheet science" id="science8"></div>
-                <div class="sheet geography" id="geography8"></div>
-                <div class="sheet history" id="history8"></div>
-                <div class="sheet citizen" id="citizen8"></div>
-                <div class="sheet socialAverage" id="socialAverage8"></div>
-                <div class="sheet total" id="total8"></div>
-                <div class="sheet average" id="average8"></div>
-                <div class="sheet ranking" id="ranking8"></div>
-            </div>
-            <!-- ----9---- -->
-            <div class="horizontal">
-                <div class="sheet number" id="number9">9</div>
-                <div class="sheet chinese" id="chinese9"></div>
-                <div class="sheet math" id="math9"></div>
-                <div class="sheet english" id="english9"></div>
-                <div class="sheet science" id="science9"></div>
-                <div class="sheet geography" id="geography9"></div>
-                <div class="sheet history" id="history9"></div>
-                <div class="sheet citizen" id="citizen9"></div>
-                <div class="sheet socialAverage" id="socialAverage9"></div>
-                <div class="sheet total" id="total9"></div>
-                <div class="sheet average" id="average9"></div>
-                <div class="sheet ranking" id="ranking9"></div>
-            </div>
-            <!-- ----10---- -->
-            <div class="horizontal">
-                <div class="sheet number" id="number10">10</div>
-                <div class="sheet chinese" id="chinese10"></div>
-                <div class="sheet math" id="math10"></div>
-                <div class="sheet english" id="english10"></div>
-                <div class="sheet science" id="science10"></div>
-                <div class="sheet geography" id="geography10"></div>
-                <div class="sheet history" id="history10"></div>
-                <div class="sheet citizen" id="citizen10"></div>
-                <div class="sheet socialAverage" id="socialAverage10"></div>
-                <div class="sheet total" id="total10"></div>
-                <div class="sheet average" id="average10"></div>
-                <div class="sheet ranking" id="ranking10"></div>
-            </div>
-            <!-- ----21一---- -->
-            <div class="horizontal">
-                <div class="sheet number" id="number21">21</div>
-                <div class="sheet chinese" id="chinese21"></div>
-                <div class="sheet math" id="math21"></div>
-                <div class="sheet english" id="english21"></div>
-                <div class="sheet science" id="science21"></div>
-                <div class="sheet geography" id="geography21"></div>
-                <div class="sheet history" id="history21"></div>
-                <div class="sheet citizen" id="citizen21"></div>
-                <div class="sheet socialAverage" id="socialAverage21"></div>
-                <div class="sheet total" id="total21"></div>
-                <div class="sheet average" id="average21"></div>
-                <div class="sheet ranking" id="ranking21"></div>
-            </div>
-            <!-- ----22---- -->
-            <div class="horizontal">
-                <div class="sheet number" id="number22">22</div>
-                <div class="sheet chinese" id="chinese22"></div>
-                <div class="sheet math" id="math22"></div>
-                <div class="sheet english" id="english22"></div>
-                <div class="sheet science" id="science22"></div>
-                <div class="sheet geography" id="geography22"></div>
-                <div class="sheet history" id="history22"></div>
-                <div class="sheet citizen" id="citizen22"></div>
-                <div class="sheet socialAverage" id="socialAverage22"></div>
-                <div class="sheet total" id="total22"></div>
-                <div class="sheet average" id="average22"></div>
-                <div class="sheet ranking" id="ranking22"></div>
-            </div>
-            <!-- ----23---- -->
-            <div class="horizontal">
-                <div class="sheet number" id="number23">23</div>
-                <div class="sheet chinese" id="chinese23"></div>
-                <div class="sheet math" id="math23"></div>
-                <div class="sheet english" id="english23"></div>
-                <div class="sheet science" id="science23"></div>
-                <div class="sheet geography" id="geography23"></div>
-                <div class="sheet history" id="history23"></div>
-                <div class="sheet citizen" id="citizen23"></div>
-                <div class="sheet socialAverage" id="socialAverage23"></div>
-                <div class="sheet total" id="total23"></div>
-                <div class="sheet average" id="average23"></div>
-                <div class="sheet ranking" id="ranking23"></div>
-            </div>
-            <!-- ----24---- -->
-            <div class="horizontal">
-                <div class="sheet number" id="number24">24</div>
-                <div class="sheet chinese" id="chinese24"></div>
-                <div class="sheet math" id="math24"></div>
-                <div class="sheet english" id="english24"></div>
-                <div class="sheet science" id="science24"></div>
-                <div class="sheet geography" id="geography24"></div>
-                <div class="sheet history" id="history24"></div>
-                <div class="sheet citizen" id="citizen24"></div>
-                <div class="sheet socialAverage" id="socialAverage24"></div>
-                <div class="sheet total" id="total24"></div>
-                <div class="sheet average" id="average24"></div>
-                <div class="sheet ranking" id="ranking24"></div>
-            </div>
-            <!-- ----25---- -->
-            <div class="horizontal">
-                <div class="sheet number" id="number25">25</div>
-                <div class="sheet chinese" id="chinese25"></div>
-                <div class="sheet math" id="math25"></div>
-                <div class="sheet english" id="english25"></div>
-                <div class="sheet science" id="science25"></div>
-                <div class="sheet geography" id="geography25"></div>
-                <div class="sheet history" id="history25"></div>
-                <div class="sheet citizen" id="citizen25"></div>
-                <div class="sheet socialAverage" id="socialAverage25"></div>
-                <div class="sheet total" id="total25"></div>
-                <div class="sheet average" id="average25"></div>
-                <div class="sheet ranking" id="ranking25"></div>
-            </div>
-            <!-- ----26---- -->
-            <div class="horizontal">
-                <div class="sheet number" id="number26">26</div>
-                <div class="sheet chinese" id="chinese26"></div>
-                <div class="sheet math" id="math26"></div>
-                <div class="sheet english" id="english26"></div>
-                <div class="sheet science" id="science26"></div>
-                <div class="sheet geography" id="geography26"></div>
-                <div class="sheet history" id="history26"></div>
-                <div class="sheet citizen" id="citizen26"></div>
-                <div class="sheet socialAverage" id="socialAverage26"></div>
-                <div class="sheet total" id="total26"></div>
-                <div class="sheet average" id="average26"></div>
-                <div class="sheet ranking" id="ranking26"></div>
-            </div>
-            <!-- ----27---- -->
-            <div class="horizontal">
-                <div class="sheet number" id="number27">27</div>
-                <div class="sheet chinese" id="chinese27"></div>
-                <div class="sheet math" id="math27"></div>
-                <div class="sheet english" id="english27"></div>
-                <div class="sheet science" id="science27"></div>
-                <div class="sheet geography" id="geography27"></div>
-                <div class="sheet history" id="history27"></div>
-                <div class="sheet citizen" id="citizen27"></div>
-                <div class="sheet socialAverage" id="socialAverage27"></div>
-                <div class="sheet total" id="total27"></div>
-                <div class="sheet average" id="average27"></div>
-                <div class="sheet ranking" id="ranking27"></div>
-            </div>
-            <!-- ----28---- -->
-            <div class="horizontal">
-                <div class="sheet number" id="number28">28</div>
-                <div class="sheet chinese" id="chinese28"></div>
-                <div class="sheet math" id="math28"></div>
-                <div class="sheet english" id="english28"></div>
-                <div class="sheet science" id="science28"></div>
-                <div class="sheet geography" id="geography28"></div>
-                <div class="sheet history" id="history28"></div>
-                <div class="sheet citizen" id="citizen28"></div>
-                <div class="sheet socialAverage" id="socialAverage28"></div>
-                <div class="sheet total" id="total28"></div>
-                <div class="sheet average" id="average28"></div>
-                <div class="sheet ranking" id="ranking28"></div>
-            </div>
-            <!-- ----29---- -->
-            <div class="horizontal">
-                <div class="sheet number" id="number29">29</div>
-                <div class="sheet chinese" id="chinese29"></div>
-                <div class="sheet math" id="math29"></div>
-                <div class="sheet english" id="english29"></div>
-                <div class="sheet science" id="science29"></div>
-                <div class="sheet geography" id="geography29"></div>
-                <div class="sheet history" id="history29"></div>
-                <div class="sheet citizen" id="citizen29"></div>
-                <div class="sheet socialAverage" id="socialAverage29"></div>
-                <div class="sheet total" id="total29"></div>
-                <div class="sheet average" id="average29"></div>
-                <div class="sheet ranking" id="ranking29"></div>
-            </div>
-            <!-- ----30---- -->
-            <div class="horizontal">
-                <div class="sheet number" id="number30">30</div>
-                <div class="sheet chinese" id="chinese30"></div>
-                <div class="sheet math" id="math30"></div>
-                <div class="sheet english" id="english30"></div>
-                <div class="sheet science" id="science30"></div>
-                <div class="sheet history" id="history30"></div>
-                <div class="sheet geography" id="geography30"></div>
-                <div class="sheet citizen" id="citizen30"></div>
-                <div class="sheet socialAverage" id="socialAverage30"></div>
-                <div class="sheet total" id="total30"></div>
-                <div class="sheet average" id="average30"></div>
-                <div class="sheet ranking" id="ranking30"></div>
-            </div>
-            <!-- ----橫二十一---- -->
-            <div class="horizontal">
-                <div class="sheet number" id="number31">31</div>
-                <div class="sheet chinese" id="chinese31"></div>
-                <div class="sheet math" id="math31"></div>
-                <div class="sheet english" id="english31"></div>
-                <div class="sheet science" id="science31"></div>
-                <div class="sheet geography" id="geography31"></div>
-                <div class="sheet history" id="history31"></div>
-                <div class="sheet citizen" id="citizen31"></div>
-                <div class="sheet socialAverage" id="socialAverage31"></div>
-                <div class="sheet total" id="total31"></div>
-                <div class="sheet average" id="average31"></div>
-                <div class="sheet ranking" id="ranking31"></div>
-            </div>
-            <!-- ----32---- -->
-            <div class="horizontal">
-                <div class="sheet number" id="number32">32</div>
-                <div class="sheet chinese" id="chinese32"></div>
-                <div class="sheet math" id="math32"></div>
-                <div class="sheet english" id="english32"></div>
-                <div class="sheet science" id="science32"></div>
-                <div class="sheet geography" id="geography32"></div>
-                <div class="sheet history" id="history32"></div>
-                <div class="sheet citizen" id="citizen32"></div>
-                <div class="sheet socialAverage" id="socialAverage32"></div>
-                <div class="sheet total" id="total32"></div>
-                <div class="sheet average" id="average32"></div>
-                <div class="sheet ranking" id="ranking32"></div>
-            </div>
-            <!-- ----橫二十三---- -->
-            <div class="horizontal">
-                <div class="sheet number" id="number33">33</div>
-                <div class="sheet chinese" id="chinese33"></div>
-                <div class="sheet math" id="math33"></div>
-                <div class="sheet english" id="english33"></div>
-                <div class="sheet science" id="science33"></div>
-                <div class="sheet geography" id="geography33"></div>
-                <div class="sheet history" id="history33"></div>
-                <div class="sheet citizen" id="citizen33"></div>
-                <div class="sheet socialAverage" id="socialAverage33"></div>
-                <div class="sheet total" id="total33"></div>
-                <div class="sheet average" id="average33"></div>
-                <div class="sheet ranking" id="ranking33"></div>
-            </div>
-            <!-- ----41---- -->
-            <div class="horizontal">
-                <div class="sheet number" id="number41">41</div>
-                <div class="sheet chinese" id="chinese41"></div>
-                <div class="sheet math" id="math41"></div>
-                <div class="sheet english" id="english41"></div>
-                <div class="sheet science" id="science41"></div>
-                <div class="sheet geography" id="geography41"></div>
-                <div class="sheet history" id="history41"></div>
-                <div class="sheet citizen" id="citizen41"></div>
-                <div class="sheet socialAverage" id="socialAverage41"></div>
-                <div class="sheet total" id="total41"></div>
-                <div class="sheet average" id="average41"></div>
-                <div class="sheet ranking" id="ranking41"></div>
-            </div>
+        <div>
+            <input type="number" class="numberinput input" id="numberinput">
+            <input type="number" class="fractioninput input" id="fraction">
         </div>
+        <div>
+            <span class="subjecttext">科目</span>
+            <select id="sujectchang" size="1" class="suject">
+                <option value="NULL" class="chang">請選擇科目</option>
+                <option value="chinese" class="chang">國文</option>
+                <option value="math" class="chang">數學</option>
+                <option value="english" class="chang">英文</option>
+                <option value="science" class="chang">自然</option>
+                <option value="geography" class="chang">地理</option>
+                <option value="history" class="chang">歷史</option>
+                <option value="citizen" class="chang">公民</option>
+            </select>
+        </div>
+        </div>
+        <div style="height: 175px;">
+        <div class="addBTN"id="addbtn" onclick="add()">
+            <div class="squareBTNtitletext">添加</div>
+            <div class="squareBTNtext">將您輸入的分數添加到表格中</div>
+        </div>
+        <div class="calculateBTN"id="calculatebtn" onclick="calculate()">
+            <div class="squareBTNtitletext">計算</div>
+            <div class="squareBTNtext">將您添加的分數計算</div>
+        </div>
+        </div>
+        <div class="ClearBTN">
+            <span class="rectangletitletext">清除</span>
+            <span class="rectangletext">清除分數</span>
+        </div>
+        <div class="downloadBTN">
+            <span class="rectangletitletext">下載</span>
+            <span class="rectangletext">將表格下載成圖片</span>
+        </div>
+    </div>
+    <div class="rightbox">
+    <div class="rightinbox">
+        <!-- ----橫一---- -->
+        <div class="horizontal">
+            <div class="sheet number-" id="number">座號</div>
+            <div class="sheet chinese-" id="chinese">國語</div>
+            <div class="sheet math-" id="math">數學</div>
+            <div class="sheet english-" id="english">英文</div>
+            <div class="sheet science-" id="science">自然</div>
+            <div class="sheet geography-" id="geography">地理</div>
+            <div class="sheet history-" id="history">歷史</div>
+            <div class="sheet citizen-" id="citizen">公民</div>
+            <div class="sheet socialAverage-" id="socialAverage">社會平均</div>
+            <div class="sheet total-" id="total">總分</div>
+            <div class="sheet average-" id="average">平均</div>
+            <div class="sheet ranking-" id="ranking">名次</div>
+        </div>
+        <!-- ----1---- -->
+        <div class="horizontal">
+            <div class="sheet number" id="number1">1</div>
+            <div class="sheet chinese" id="chinese1"></div>
+            <div class="sheet math" id="math1"></div>
+            <div class="sheet english" id="english1"></div>
+            <div class="sheet science" id="science1"></div>
+            <div class="sheet geography" id="geography1"></div>
+            <div class="sheet history" id="history1"></div>
+            <div class="sheet citizen" id="citizen1"></div>
+            <div class="sheet socialAverage" id="socialAverage1"></div>
+            <div class="sheet total" id="total1"></div>
+            <div class="sheet average" id="average1"></div>
+            <div class="sheet ranking" id="ranking1"></div>
+        </div>
+        <!-- ----3---- -->
+        <div class="horizontal">
+            <div class="sheet number" id="number3">3</div>
+            <div class="sheet chinese" id="chinese3"></div>
+            <div class="sheet math" id="math3"></div>
+            <div class="sheet english" id="english3"></div>
+            <div class="sheet science" id="science3"></div>
+            <div class="sheet geography" id="geography3"></div>
+            <div class="sheet history" id="history3"></div>
+            <div class="sheet citizen" id="citizen3"></div>
+            <div class="sheet socialAverage" id="socialAverage3"></div>
+            <div class="sheet total" id="total3"></div>
+            <div class="sheet average" id="average3"></div>
+            <div class="sheet ranking" id="ranking3"></div>
+        </div>
+        <!-- ----4---- -->
+        <div class="horizontal">
+            <div class="sheet number" id="number4">4</div>
+            <div class="sheet chinese" id="chinese4"></div>
+            <div class="sheet math" id="math4"></div>
+            <div class="sheet english" id="english4"></div>
+            <div class="sheet science" id="science4"></div>
+            <div class="sheet geography" id="geography4"></div>
+            <div class="sheet history" id="history4"></div>
+            <div class="sheet citizen" id="citizen4"></div>
+            <div class="sheet socialAverage" id="socialAverage4"></div>
+            <div class="sheet total" id="total4"></div>
+            <div class="sheet average" id="average4"></div>
+            <div class="sheet ranking" id="ranking4"></div>
+        </div>
+        <!-- ----5---- -->
+        <div class="horizontal">
+            <div class="sheet number" id="number5">5</div>
+            <div class="sheet chinese" id="chinese5"></div>
+            <div class="sheet math" id="math5"></div>
+            <div class="sheet english" id="english5"></div>
+            <div class="sheet science" id="science5"></div>
+            <div class="sheet geography" id="geography5"></div>
+            <div class="sheet history" id="history5"></div>
+            <div class="sheet citizen" id="citizen5"></div>
+            <div class="sheet socialAverage" id="socialAverage5"></div>
+            <div class="sheet total" id="total5"></div>
+            <div class="sheet average" id="average5"></div>
+            <div class="sheet ranking" id="ranking5"></div>
+        </div>
+        <!-- ----6---- -->
+        <div class="horizontal">
+            <div class="sheet number" id="number6">6</div>
+            <div class="sheet chinese" id="chinese6"></div>
+            <div class="sheet math" id="math6"></div>
+            <div class="sheet english" id="english6"></div>
+            <div class="sheet science" id="science6"></div>
+            <div class="sheet geography" id="geography6"></div>
+            <div class="sheet history" id="history6"></div>
+            <div class="sheet citizen" id="citizen6"></div>
+            <div class="sheet socialAverage" id="socialAverage6"></div>
+            <div class="sheet total" id="total6"></div>
+            <div class="sheet average" id="average6"></div>
+            <div class="sheet ranking" id="ranking6"></div>
+        </div>
+        <!-- ----7---- -->
+        <div class="horizontal">
+            <div class="sheet number" id="number7">7</div>
+            <div class="sheet chinese" id="chinese7"></div>
+            <div class="sheet math" id="math7"></div>
+            <div class="sheet english" id="english7"></div>
+            <div class="sheet science" id="science7"></div>
+            <div class="sheet geography" id="geography7"></div>
+            <div class="sheet history" id="history7"></div>
+            <div class="sheet citizen" id="citizen7"></div>
+            <div class="sheet socialAverage" id="socialAverage7"></div>
+            <div class="sheet total" id="total7"></div>
+            <div class="sheet average" id="average7"></div>
+            <div class="sheet ranking" id="ranking7"></div>
+        </div>
+        <!-- ----8---- -->
+        <div class="horizontal">
+            <div class="sheet number" id="number8">8</div>
+            <div class="sheet chinese" id="chinese8"></div>
+            <div class="sheet math" id="math8"></div>
+            <div class="sheet english" id="english8"></div>
+            <div class="sheet science" id="science8"></div>
+            <div class="sheet geography" id="geography8"></div>
+            <div class="sheet history" id="history8"></div>
+            <div class="sheet citizen" id="citizen8"></div>
+            <div class="sheet socialAverage" id="socialAverage8"></div>
+            <div class="sheet total" id="total8"></div>
+            <div class="sheet average" id="average8"></div>
+            <div class="sheet ranking" id="ranking8"></div>
+        </div>
+        <!-- ----9---- -->
+        <div class="horizontal">
+            <div class="sheet number" id="number9">9</div>
+            <div class="sheet chinese" id="chinese9"></div>
+            <div class="sheet math" id="math9"></div>
+            <div class="sheet english" id="english9"></div>
+            <div class="sheet science" id="science9"></div>
+            <div class="sheet geography" id="geography9"></div>
+            <div class="sheet history" id="history9"></div>
+            <div class="sheet citizen" id="citizen9"></div>
+            <div class="sheet socialAverage" id="socialAverage9"></div>
+            <div class="sheet total" id="total9"></div>
+            <div class="sheet average" id="average9"></div>
+            <div class="sheet ranking" id="ranking9"></div>
+        </div>
+        <!-- ----10---- -->
+        <div class="horizontal">
+            <div class="sheet number" id="number10">10</div>
+            <div class="sheet chinese" id="chinese10"></div>
+            <div class="sheet math" id="math10"></div>
+            <div class="sheet english" id="english10"></div>
+            <div class="sheet science" id="science10"></div>
+            <div class="sheet geography" id="geography10"></div>
+            <div class="sheet history" id="history10"></div>
+            <div class="sheet citizen" id="citizen10"></div>
+            <div class="sheet socialAverage" id="socialAverage10"></div>
+            <div class="sheet total" id="total10"></div>
+            <div class="sheet average" id="average10"></div>
+            <div class="sheet ranking" id="ranking10"></div>
+        </div>
+        <!-- ----21一---- -->
+        <div class="horizontal">
+            <div class="sheet number" id="number21">21</div>
+            <div class="sheet chinese" id="chinese21"></div>
+            <div class="sheet math" id="math21"></div>
+            <div class="sheet english" id="english21"></div>
+            <div class="sheet science" id="science21"></div>
+            <div class="sheet geography" id="geography21"></div>
+            <div class="sheet history" id="history21"></div>
+            <div class="sheet citizen" id="citizen21"></div>
+            <div class="sheet socialAverage" id="socialAverage21"></div>
+            <div class="sheet total" id="total21"></div>
+            <div class="sheet average" id="average21"></div>
+            <div class="sheet ranking" id="ranking21"></div>
+        </div>
+        <!-- ----22---- -->
+        <div class="horizontal">
+            <div class="sheet number" id="number22">22</div>
+            <div class="sheet chinese" id="chinese22"></div>
+            <div class="sheet math" id="math22"></div>
+            <div class="sheet english" id="english22"></div>
+            <div class="sheet science" id="science22"></div>
+            <div class="sheet geography" id="geography22"></div>
+            <div class="sheet history" id="history22"></div>
+            <div class="sheet citizen" id="citizen22"></div>
+            <div class="sheet socialAverage" id="socialAverage22"></div>
+            <div class="sheet total" id="total22"></div>
+            <div class="sheet average" id="average22"></div>
+            <div class="sheet ranking" id="ranking22"></div>
+        </div>
+        <!-- ----23---- -->
+        <div class="horizontal">
+            <div class="sheet number" id="number23">23</div>
+            <div class="sheet chinese" id="chinese23"></div>
+            <div class="sheet math" id="math23"></div>
+            <div class="sheet english" id="english23"></div>
+            <div class="sheet science" id="science23"></div>
+            <div class="sheet geography" id="geography23"></div>
+            <div class="sheet history" id="history23"></div>
+            <div class="sheet citizen" id="citizen23"></div>
+            <div class="sheet socialAverage" id="socialAverage23"></div>
+            <div class="sheet total" id="total23"></div>
+            <div class="sheet average" id="average23"></div>
+            <div class="sheet ranking" id="ranking23"></div>
+        </div>
+        <!-- ----24---- -->
+        <div class="horizontal">
+            <div class="sheet number" id="number24">24</div>
+            <div class="sheet chinese" id="chinese24"></div>
+            <div class="sheet math" id="math24"></div>
+            <div class="sheet english" id="english24"></div>
+            <div class="sheet science" id="science24"></div>
+            <div class="sheet geography" id="geography24"></div>
+            <div class="sheet history" id="history24"></div>
+            <div class="sheet citizen" id="citizen24"></div>
+            <div class="sheet socialAverage" id="socialAverage24"></div>
+            <div class="sheet total" id="total24"></div>
+            <div class="sheet average" id="average24"></div>
+            <div class="sheet ranking" id="ranking24"></div>
+        </div>
+        <!-- ----25---- -->
+        <div class="horizontal">
+            <div class="sheet number" id="number25">25</div>
+            <div class="sheet chinese" id="chinese25"></div>
+            <div class="sheet math" id="math25"></div>
+            <div class="sheet english" id="english25"></div>
+            <div class="sheet science" id="science25"></div>
+            <div class="sheet geography" id="geography25"></div>
+            <div class="sheet history" id="history25"></div>
+            <div class="sheet citizen" id="citizen25"></div>
+            <div class="sheet socialAverage" id="socialAverage25"></div>
+            <div class="sheet total" id="total25"></div>
+            <div class="sheet average" id="average25"></div>
+            <div class="sheet ranking" id="ranking25"></div>
+        </div>
+        <!-- ----26---- -->
+        <div class="horizontal">
+            <div class="sheet number" id="number26">26</div>
+            <div class="sheet chinese" id="chinese26"></div>
+            <div class="sheet math" id="math26"></div>
+            <div class="sheet english" id="english26"></div>
+            <div class="sheet science" id="science26"></div>
+            <div class="sheet geography" id="geography26"></div>
+            <div class="sheet history" id="history26"></div>
+            <div class="sheet citizen" id="citizen26"></div>
+            <div class="sheet socialAverage" id="socialAverage26"></div>
+            <div class="sheet total" id="total26"></div>
+            <div class="sheet average" id="average26"></div>
+            <div class="sheet ranking" id="ranking26"></div>
+        </div>
+        <!-- ----27---- -->
+        <div class="horizontal">
+            <div class="sheet number" id="number27">27</div>
+            <div class="sheet chinese" id="chinese27"></div>
+            <div class="sheet math" id="math27"></div>
+            <div class="sheet english" id="english27"></div>
+            <div class="sheet science" id="science27"></div>
+            <div class="sheet geography" id="geography27"></div>
+            <div class="sheet history" id="history27"></div>
+            <div class="sheet citizen" id="citizen27"></div>
+            <div class="sheet socialAverage" id="socialAverage27"></div>
+            <div class="sheet total" id="total27"></div>
+            <div class="sheet average" id="average27"></div>
+            <div class="sheet ranking" id="ranking27"></div>
+        </div>
+        <!-- ----28---- -->
+        <div class="horizontal">
+            <div class="sheet number" id="number28">28</div>
+            <div class="sheet chinese" id="chinese28"></div>
+            <div class="sheet math" id="math28"></div>
+            <div class="sheet english" id="english28"></div>
+            <div class="sheet science" id="science28"></div>
+            <div class="sheet geography" id="geography28"></div>
+            <div class="sheet history" id="history28"></div>
+            <div class="sheet citizen" id="citizen28"></div>
+            <div class="sheet socialAverage" id="socialAverage28"></div>
+            <div class="sheet total" id="total28"></div>
+            <div class="sheet average" id="average28"></div>
+            <div class="sheet ranking" id="ranking28"></div>
+        </div>
+        <!-- ----29---- -->
+        <div class="horizontal">
+            <div class="sheet number" id="number29">29</div>
+            <div class="sheet chinese" id="chinese29"></div>
+            <div class="sheet math" id="math29"></div>
+            <div class="sheet english" id="english29"></div>
+            <div class="sheet science" id="science29"></div>
+            <div class="sheet geography" id="geography29"></div>
+            <div class="sheet history" id="history29"></div>
+            <div class="sheet citizen" id="citizen29"></div>
+            <div class="sheet socialAverage" id="socialAverage29"></div>
+            <div class="sheet total" id="total29"></div>
+            <div class="sheet average" id="average29"></div>
+            <div class="sheet ranking" id="ranking29"></div>
+        </div>
+        <!-- ----30---- -->
+        <div class="horizontal">
+            <div class="sheet number" id="number30">30</div>
+            <div class="sheet chinese" id="chinese30"></div>
+            <div class="sheet math" id="math30"></div>
+            <div class="sheet english" id="english30"></div>
+            <div class="sheet science" id="science30"></div>
+            <div class="sheet history" id="history30"></div>
+            <div class="sheet geography" id="geography30"></div>
+            <div class="sheet citizen" id="citizen30"></div>
+            <div class="sheet socialAverage" id="socialAverage30"></div>
+            <div class="sheet total" id="total30"></div>
+            <div class="sheet average" id="average30"></div>
+            <div class="sheet ranking" id="ranking30"></div>
+        </div>
+        <!-- ----橫二十一---- -->
+        <div class="horizontal">
+            <div class="sheet number" id="number31">31</div>
+            <div class="sheet chinese" id="chinese31"></div>
+            <div class="sheet math" id="math31"></div>
+            <div class="sheet english" id="english31"></div>
+            <div class="sheet science" id="science31"></div>
+            <div class="sheet geography" id="geography31"></div>
+            <div class="sheet history" id="history31"></div>
+            <div class="sheet citizen" id="citizen31"></div>
+            <div class="sheet socialAverage" id="socialAverage31"></div>
+            <div class="sheet total" id="total31"></div>
+            <div class="sheet average" id="average31"></div>
+            <div class="sheet ranking" id="ranking31"></div>
+        </div>
+        <!-- ----32---- -->
+        <div class="horizontal">
+            <div class="sheet number" id="number32">32</div>
+            <div class="sheet chinese" id="chinese32"></div>
+            <div class="sheet math" id="math32"></div>
+            <div class="sheet english" id="english32"></div>
+            <div class="sheet science" id="science32"></div>
+            <div class="sheet geography" id="geography32"></div>
+            <div class="sheet history" id="history32"></div>
+            <div class="sheet citizen" id="citizen32"></div>
+            <div class="sheet socialAverage" id="socialAverage32"></div>
+            <div class="sheet total" id="total32"></div>
+            <div class="sheet average" id="average32"></div>
+            <div class="sheet ranking" id="ranking32"></div>
+        </div>
+        <!-- ----橫二十三---- -->
+        <div class="horizontal">
+            <div class="sheet number" id="number33">33</div>
+            <div class="sheet chinese" id="chinese33"></div>
+            <div class="sheet math" id="math33"></div>
+            <div class="sheet english" id="english33"></div>
+            <div class="sheet science" id="science33"></div>
+            <div class="sheet geography" id="geography33"></div>
+            <div class="sheet history" id="history33"></div>
+            <div class="sheet citizen" id="citizen33"></div>
+            <div class="sheet socialAverage" id="socialAverage33"></div>
+            <div class="sheet total" id="total33"></div>
+            <div class="sheet average" id="average33"></div>
+            <div class="sheet ranking" id="ranking33"></div>
+        </div>
+        <!-- ----41---- -->
+        <div class="horizontal">
+            <div class="sheet number" id="number41">41</div>
+            <div class="sheet chinese" id="chinese41"></div>
+            <div class="sheet math" id="math41"></div>
+            <div class="sheet english" id="english41"></div>
+            <div class="sheet science" id="science41"></div>
+            <div class="sheet geography" id="geography41"></div>
+            <div class="sheet history" id="history41"></div>
+            <div class="sheet citizen" id="citizen41"></div>
+            <div class="sheet socialAverage" id="socialAverage41"></div>
+            <div class="sheet total" id="total41"></div>
+            <div class="sheet average" id="average41"></div>
+            <div class="sheet ranking" id="ranking41"></div>
+        </div>
+    </div>
+    </div>
+    </div>
 <script src="index.js"></script>
 </body>
 </html>
