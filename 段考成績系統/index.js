@@ -234,4 +234,7 @@ function switchtest(q,i,x){
         break
     }
 }
+function qq(){
+    alert(`此功能及將推出，敬請期待`)
+}
 //fillup()
