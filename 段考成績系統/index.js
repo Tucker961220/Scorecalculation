@@ -88,12 +88,12 @@ function add() {  //添加分數按鈕函式
                     numberinput.value= Number(numberinput.value)+1
                     number = numberinput.value
                     if (numberBoolean(number)) {
-                        alert("aa")
                     }else{
-                        alert("bb")
-                        while(numberBoolean(number)==false){
-                            numberinput.value= Number(numberinput.value)+1
-                            number = numberinput.value
+                        if (number<42) {
+                            while(numberBoolean(number)==false){
+                                numberinput.value= Number(numberinput.value)+1
+                                number = numberinput.value
+                            }
                         }
                     }
                 break
