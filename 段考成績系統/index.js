@@ -15,7 +15,7 @@ var socialaverage = {"項目":'社會平均'} //社會平均
 var totalscore = {"項目":'總分'} //總分
 var average = {"項目":'平均'} //平均
 var ranking = {"項目":'名次'} //名次
-
+var accelerateOPEN = false
 
 const numbertest = [1,3,4,5,6,7,8,9,10,21,22,23,24,25,26,27,28,29,30,31,32,33,41]
 const subjecttest=["chinese","math","english","science","history","geography","citizen"]
@@ -46,9 +46,14 @@ function add() {  //添加分數按鈕函式
                 return false
             }
         }else{
-            alert("座號錯誤，請重新輸入")
-            numberinput.value=""
-            return false
+            if (number=="") {
+                alert(`請輸入座號`)
+            }else{
+                alert("座號錯誤，請重新輸入")
+                numberinput.value=""
+                return false
+            }
+
         }
     }
     if (judge()){
@@ -56,8 +61,44 @@ function add() {  //添加分數按鈕函式
         var dom = String(suject+number)
         document.getElementById(dom).innerText= fraction
         arrayjudeg(suject,number,fraction)
-        fractioninput.value=""
         hint("分數添加成功")
+        fractioninput.value=""
+        if (accelerateOPEN) {
+            switch (suject){
+                case 'chinese':
+                    sujectchang.value="math"
+                break
+                case 'math':
+                    sujectchang.value="english"
+                break
+                case 'english':
+                    sujectchang.value="science"
+                break
+                case 'science':
+                    sujectchang.value="geography"
+                break
+                case 'geography':
+                    sujectchang.value="history"
+                break
+                case 'history':
+                    sujectchang.value="citizen"
+                break
+                case 'citizen':
+                    sujectchang.value="chinese"
+                    numberinput.value= Number(numberinput.value)+1
+                    number = numberinput.value
+                    if (numberBoolean(number)) {
+                        alert("aa")
+                    }else{
+                        alert("bb")
+                        while(numberBoolean(number)==false){
+                            numberinput.value= Number(numberinput.value)+1
+                            number = numberinput.value
+                        }
+                    }
+                break
+            }
+        }
     }
 
 }
@@ -177,6 +218,16 @@ function continuecalculate(){
         }
     }
 }
+//判斷座號是否正確
+function numberBoolean(x){
+    if (x==1 || x>2 && x<11 ||x>20 && x<34 || x==41) {
+        return true
+    }else{
+        return false
+    }
+}
+
+
 //測試功能
 function fillup(){
     for (var q=0;q<7;q++){
@@ -260,7 +311,34 @@ function hint(message){
     setTimeout(()=>{document.getElementById("alertbox").classList='hide alertbox'},3000)
 }
 
-
+//設定
+function setup(){
+    document.getElementById("all").style.display="block"
+    document.getElementById("setup").style.display="block"
+}
+function closea(){
+    document.getElementById("all").style.display="none"
+    document.getElementById("setup").style.display="none"
+}
+function closeb(){
+    document.getElementById("all").style.display="none"
+    document.getElementById("setup").style.display="none"
+}
+function accelerateBTN(){
+    if (accelerateOPEN) {
+        document.getElementById("accelerate").classList="close circle"
+        accelerateOPEN=false
+        sujectchang.value="NULL"
+        numberinput.value=""
+        hint(`快速輸入模式已關閉`)
+    }else{
+        document.getElementById("accelerate").classList="open circle"
+        accelerateOPEN=true
+        sujectchang.value="chinese"
+        numberinput.value="1"
+        hint(`快速輸入模式已開啟`)
+    }
+}
 
 function qq(){
     alert(`此功能及將推出，敬請期待`)

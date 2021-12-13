@@ -9,12 +9,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"></link>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.3/html2canvas.min.js"></script>
 </head>
 <body>
 
     <div class="leftbox">
         <div class="titletext">段考成績系統</div>
+        <span><i class="fas fa-cog" onclick="setup()"></i></span>
         <div class="inputbox">
         <div>
             <span class="numbertext">座號</span>
@@ -421,8 +423,21 @@
         </div>
     </div>
     </div>
+    <div class="all" id="all" onclick="closeb()"></div>
+    <div class="setup" id="setup">
+        <h1 class="setuptitle">設定</h1>
+        <div class="far fa-times-circle" onclick="closea()"></div>
+        <hr>
+        <div class="setupinbox">
+            <h1 class="uptitle">快速輸入模式</h1>
+            <div class="outcircle"onclick="accelerateBTN()"><div class="close circle" id="accelerate"></div></div> 
+            <h2 class="acceleratetext">當您添加分數後，系統將自動將科目調成下個科目，如科目到公民後，座號將自動調成下一號，並將科目調回國文</h2>
+            <hr>
+            <h2>最後更新日期：12/13</h2>
+            <h2>版本：V1.2.0</h2>
+        </div>
+    </div>
     <div class="a alertbox" id="alertbox"></div>
-
 <script src="index.js"></script>
 </body>
 </html>
