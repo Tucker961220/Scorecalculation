@@ -95,6 +95,11 @@ function add() {  //添加分數按鈕函式
                                 number = numberinput.value
                             }
                         }
+                        if (numberinput.value==42){
+                            numberinput.value=""
+                            sujectchang.value="NULL"
+                            alert(`您已輸入完分數，如需下載表格圖片請點擊功能欄中的"下載"按鈕`)
+                        }
                     }
                 break
             }
@@ -150,7 +155,7 @@ function arrayjudeg(suject,number,fraction){   //判斷項目並增加物件和c
     }
 }
 function objectdetection(){  //檢測分數是否全部輸入完畢
-    if (Object.keys(chinese).length==24&&Object.keys(math).length==24&&Object.keys(english).length==24&&Object.keys(science).length==24&&Object.keys(history).length==24&&Object.keys(geography).length==24&&Object.keys(citizen).length==24){
+    if (Object.keys(chinese).length==24&&Object.keys(math).length==24&&Object.keys(english).length==24&&Object.keys(science).length==24&&Object.keys(HISTORY).length==24&&Object.keys(geography).length==24&&Object.keys(citizen).length==24){
         return true
     }else{
         return false
@@ -175,6 +180,7 @@ function continuecalculate(){
         average[numbertest[i]] = Math.round(totalscore[numbertest[i]]/5*10)/10
         document.getElementById(`average${numbertest[i]}`).innerText=average[numbertest[i]]
     }
+    console.log(average)
     var rankingg = 1
     var copyaverage = Object.assign({},average)
     for(var q=0;q<23;q++){
@@ -315,14 +321,17 @@ function hint(message){
 function setup(){
     document.getElementById("all").style.display="block"
     document.getElementById("setup").style.display="block"
+    document.querySelector("body").style.overflow="hidden"
 }
 function closea(){
     document.getElementById("all").style.display="none"
     document.getElementById("setup").style.display="none"
+    document.querySelector("body").style.overflow="scroll"
 }
 function closeb(){
     document.getElementById("all").style.display="none"
     document.getElementById("setup").style.display="none"
+    document.querySelector("body").style.overflow="scroll"
 }
 function accelerateBTN(){
     if (accelerateOPEN) {
@@ -343,4 +352,19 @@ function accelerateBTN(){
 function qq(){
     alert(`此功能及將推出，敬請期待`)
 }
+//鍵盤快速鍵
+function keyboard(){
+    if (window.event.keyCode==13) {
+        add()
+    }else if (window.event.keyCode==32) {
+        calculate()
+    }
+}
+document.onkeydown = keyboard;
+
+window.onbeforeunload=function(e){     
+    var e = window.event||e;  
+    e.returnValue=("確定離開當前頁面嗎？");
+} 
+
 // fillup()
